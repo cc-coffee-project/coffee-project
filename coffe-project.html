@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DOM</title>
+    <style>
+        .redBackground {
+            background-color:red
+        }
+        .greenText {
+            color:green
+        }
+        .purple {
+            background:purple;
+        }
+        .cyan {
+            color:cyan;
+        }
+    </style>
 </head>
 <body>
+<h1 id="header">Happy Holidays</h1>
+<h3>Wish List</h3>
+<ul id="wishList">
+</ul>
+<form name="giftForm" action="">
+    <div>
+        <label for="gift">What do you want for Christmas?</label>
+        <input id="gift" name="gift" type="text">
+    </div>
 
+</form>
+<button id="button" class="cyan">Click Me!</button>
+<script>
+    var gifts = ["plant", "necktie", "socks", "pony"];
+    var button = document.getElementById("button");
+    button.addEventListener("click",addGift);
+    function addGift() {
+        // var gift = document.forms.giftForm.gift.value;
+        var gift = document.getElementById("gift").value;
+        gifts.push(gift);
+        renderWishList(); // wipes out wish list, refills it with gifts array
+        document.getElementById("gift").value = "";
+    }
+    function renderWishList() {
+        var giftString = "";
+        gifts.forEach(function(gift) {
+            giftString += "<li>" + gift + "</li>";
+        });
+        document.getElementById("wishList").innerHTML = giftString;
+    }
+    renderWishList();
+    // The following is to toggle a class on the button
+    button.addEventListener("mouseover", function(){
+        toggleClass(button, "purple");
+    })
+    button.addEventListener("mouseout", function(){
+        toggleClass(button, "purple");
+    })
+    function toggleClass(element, classy) {
+        var elementClasses = element.getAttribute("class");
+        if (elementClasses.includes(classy))
+            removeClass(element, classy);
+        else
+            addClass(element, classy);
+    }
+    function addClass(element, classy) {
+        element.setAttribute("class", element.getAttribute("class") + " " + classy);
+    }
+    function removeClass(element, classy){
+        var elementClasses = element.getAttribute("class").split(" ");
+        elementClasses[elementClasses.indexOf(classy)] = "";
+        element.setAttribute("class", elementClasses.join(" "))
+    }
+</script>
 </body>
 </html>
