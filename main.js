@@ -1,14 +1,41 @@
 "use strict"
 
+// function renderCoffee(coffee) {
+//     var html = '<tr class="coffee">';
+//     html += '<td>' + coffee.id + '</td>';
+//     html += '<td>' + coffee.name + '</td>';
+//     html += '<td>' + coffee.roast + '</td>';
+//     html += '</tr>';
+//
+//     return html;
+// }
+
+
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+
+   var html = '<div><h2>' + coffee.name + '</h2>' + '<p>' + coffee.roast + '</p>' + '</div>';
 
     return html;
 }
+
+function coffeeNames(){
+    var coffeeName = document.getElementById("submit").value;
+    coffeeSearch.push(coffeeName)
+    document.getElementById(coffeeName.value="");
+    for(let i=0; i<coffees.length;i++){
+        if(coffees[i].name === ""){
+            coffeeName.push(coffees[i]);
+        }
+    }
+    return coffeeName
+}
+console.log(coffeeNames);
+
+// document.getElementById("search" ).addEventListener("click", function(){
+//     var coffeeName = document.getElementById("submit")
+//
+// return (coffeeName)
+// });
 
 
 function renderCoffees(coffees) {
@@ -58,6 +85,6 @@ tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
 
 
-document.getElementById("roast type").addEventListener("click"function() {
-
-})
+// document.getElementById("roast type").addEventListener("click", function() {
+//
+// })
