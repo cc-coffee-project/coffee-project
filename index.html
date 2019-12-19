@@ -6,52 +6,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <h1>Coffee!</h1>
 
+<form>
+    <label for="roast-selection"></label>
+    <select id="roast-selection">
+        <option>light</option>
+        <option>medium</option>
+        <option>dark</option>
+    </select>
+    <input id="submit" type="submit" /><--top submit button
+</form>
 
+<input type="text" id="coffee-input">
+<div id="coffees"></div>
 
-
-    <form name ="coffeeForm" action="">
-
-
-
-        <select id="roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <input id="submit" type="submit" />
-    </form>
-
-
-<button id="search coffee">Search Coffee</button>
-<input id="submit" name ="coffeeSearch" type="text" >
-
-
-    <div id="coffees"></div>
-
-<!--    <table>-->
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>ID</th>-->
-<!--                <th>NAME</th>-->
-<!--                <th>ROAST</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
-<!--        <tbody id="coffees"></tbody>-->
-<!--    </table>-->
-
-    <script src="main.js"></script>
-<script>
-
-
-
-
-
-
-</script>
-
-
+<script src="main.js"></script>
 </body>
 </html>
