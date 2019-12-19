@@ -23,7 +23,10 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        } else if(coffee.allroasts===selectedRoast){
+            filteredCoffees.push(coffee);
         }
+
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
     coffeeInput.innerHTML = renderCoffees(filteredCoffees);
@@ -47,23 +50,47 @@ function searchCoffees(e) {
 }
 
 
+function searchCoffees(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var searchInput = coffeeInput.value.toLowerCase();
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        var currentRoast = coffee.roast.toLowerCase();//
+        var currentName = coffee.name.toLowerCase();
+        if (currentRoast.includes(searchInput) || currentName.includes(searchInput)) {
+            filteredCoffees.push(coffee);
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+    coffeeInput.innerHTML = renderCoffees(filteredCoffees);
+}
+
+
+function allRoasts() {
+    var selectAll =
+}
+
+
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 1, name: 'Light City', roast: 'light' allroasts: "all roast"},
+    {id: 2, name: 'Half City', roast: 'light',allroasts: "all roast"},
+    {id: 3, name: 'Cinnamon', roast: 'light',allroasts: "all roast"},
+    {id: 4, name: 'City', roast: 'medium',allroasts: "all roast"},
+    {id: 5, name: 'American', roast: 'medium',allroasts: "all roast"},
+    {id: 6, name: 'Breakfast', roast: 'medium',allroasts: "all roast"},
+    {id: 7, name: 'High', roast: 'dark',allroasts: "all roast"},
+    {id: 8, name: 'Continental', roast: 'dark',allroasts: "all roast"},
+    {id: 9, name: 'New Orleans', roast: 'dark',allroasts: "all roast"},
+    {id: 10, name: 'European', roast: 'dark',allroasts: "all roast"},
+    {id: 11, name: 'Espresso', roast: 'dark',allroasts: "all roast"},
+    {id: 12, name: 'Viennese', roast: 'dark',allroasts: "all roast"},
+    {id: 13, name: 'Italian', roast: 'dark',allroasts: "all roast"},
+    {id: 14, name: 'French', roast: 'dark',allroasts: "all roast"},
+
+
 ];
 
 var tbody = document.querySelector('#coffees');
