@@ -88,3 +88,6 @@ submitButton.addEventListener('click', updateCoffees);
 // document.getElementById("roast type").addEventListener("click", function() {
 //
 // })
+
+// // selecting the zoom dropdown input
+var select = document.querySelector('#zoom-level');
